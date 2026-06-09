@@ -3,218 +3,80 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bolsa de Uniformes · Colegio Ciudad de México</title>
+  <title>Bolsa de Uniformes · Colegio Ciudad de Mexico</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      font-family: 'Segoe UI', Arial, sans-serif;
-      background: #f4f6f2;
-      min-height: 100vh;
-      padding: 16px;
-    }
-
-    .wrap {
-      max-width: 780px;
-      margin: 0 auto;
-      background: #fff;
-      border-radius: 14px;
-      overflow: hidden;
-      border: 1px solid #C0DD97;
-      box-shadow: 0 4px 24px rgba(46,125,94,0.08);
-    }
-
-    /* TOP BAR */
-    .top-bar {
-      background: #1a2472;
-      padding: 14px 20px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
+    body { font-family: 'Segoe UI', Arial, sans-serif; background: #f4f6f2; min-height: 100vh; padding: 16px; }
+    .wrap { max-width: 780px; margin: 0 auto; background: #fff; border-radius: 14px; overflow: hidden; border: 1px solid #C0DD97; box-shadow: 0 4px 24px rgba(46,125,94,0.08); }
+    .top-bar { background: #1a2472; padding: 14px 20px; display: flex; align-items: center; gap: 12px; }
     .top-bar img { height: 42px; object-fit: contain; }
     .top-bar-divider { width: 1px; height: 32px; background: rgba(255,255,255,0.2); }
     .top-bar-title { font-size: 13px; font-weight: 500; color: #fff; margin-bottom: 1px; }
     .top-bar-sub { font-size: 11px; color: rgba(255,255,255,0.6); }
-
-    /* HERO */
     .hero { background: #2e7d5e; padding: 20px 20px 16px; }
     .hero-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
     .hero-headline { font-size: 17px; font-weight: 500; color: #fff; margin-bottom: 6px; }
     .hero-sub { font-size: 12px; color: rgba(255,255,255,0.85); line-height: 1.6; margin-bottom: 8px; }
-    .hero-highlight {
-      font-size: 12px; font-weight: 500; color: #fff;
-      background: rgba(255,255,255,0.15);
-      border: 1px solid rgba(255,255,255,0.3);
-      border-radius: 8px; padding: 8px 12px;
-      display: block; margin-bottom: 14px;
-    }
-    .hero-icon {
-      width: 44px; height: 44px; flex-shrink: 0;
-      background: rgba(255,255,255,0.15);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-    }
+    .hero-highlight { font-size: 12px; font-weight: 500; color: #fff; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); border-radius: 8px; padding: 8px 12px; display: block; margin-bottom: 14px; }
+    .hero-icon { width: 44px; height: 44px; flex-shrink: 0; background: rgba(255,255,255,0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
     .impact-pills { display: flex; gap: 6px; flex-wrap: wrap; }
-    .impact-pill {
-      font-size: 11px; font-weight: 500; padding: 4px 12px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.15); color: #fff;
-      border: 1px solid rgba(255,255,255,0.25);
-      display: flex; align-items: center; gap: 5px;
-    }
-
-    /* STATS */
-    .stats-strip {
-      background: #EAF3DE;
-      border-top: 1px solid #C0DD97;
-      border-bottom: 1px solid #C0DD97;
-      display: grid; grid-template-columns: 1fr 1fr;
-    }
+    .impact-pill { font-size: 11px; font-weight: 500; padding: 4px 12px; border-radius: 999px; background: rgba(255,255,255,0.15); color: #fff; border: 1px solid rgba(255,255,255,0.25); display: flex; align-items: center; gap: 5px; }
+    .stats-strip { background: #EAF3DE; border-top: 1px solid #C0DD97; border-bottom: 1px solid #C0DD97; display: grid; grid-template-columns: 1fr 1fr; }
     .stat-cell { padding: 12px 20px; }
     .stat-cell:first-child { border-right: 1px solid #C0DD97; }
     .stat-label { font-size: 11px; color: #3B6D11; margin-bottom: 2px; }
     .stat-value { font-size: 22px; font-weight: 500; color: #27500A; }
-
-    /* BODY */
     .body { padding: 1.25rem; }
-
-    .last-update {
-      font-size: 11px; color: #888; margin-bottom: 12px;
-      display: flex; align-items: center; gap: 5px;
-    }
+    .last-update { font-size: 11px; color: #888; margin-bottom: 12px; display: flex; align-items: center; gap: 5px; }
     .last-update.loading { color: #3B6D11; }
-
-    .ccm-search {
-      width: 100%; font-size: 13px; padding: 8px 12px;
-      border-radius: 8px; border: 1.5px solid #C0DD97;
-      color: #222; margin-bottom: 1rem; background: #fff;
-      outline: none;
-    }
+    .ccm-search { width: 100%; font-size: 13px; padding: 8px 12px; border-radius: 8px; border: 1.5px solid #C0DD97; color: #222; margin-bottom: 1rem; background: #fff; outline: none; }
     .ccm-search:focus { border-color: #2e7d5e; }
-
     .controls-row { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 1.25rem; align-items: center; }
-    .filter-btn {
-      font-size: 11px; font-weight: 400; padding: 0 12px;
-      border-radius: 999px; border: 1.5px solid #C0DD97;
-      background: #fff; color: #3B6D11; cursor: pointer;
-      height: 30px; transition: all 0.15s;
-    }
+    .filter-btn { font-size: 11px; font-weight: 400; padding: 0 12px; border-radius: 999px; border: 1.5px solid #C0DD97; background: #fff; color: #3B6D11; cursor: pointer; height: 30px; transition: all 0.15s; }
     .filter-btn.active { background: #2e7d5e; color: #fff; border-color: #2e7d5e; }
     .filter-btn:hover:not(.active) { background: #EAF3DE; }
-
-    .size-select {
-      font-size: 11px; font-weight: 400; height: 30px;
-      padding: 0 22px 0 10px; border-radius: 999px;
-      border: 1.5px solid #C0DD97; background: #fff;
-      color: #3B6D11; cursor: pointer; appearance: none;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath fill='%233B6D11' d='M0 0l5 6 5-6z'/%3E%3C/svg%3E");
-      background-repeat: no-repeat; background-position: right 8px center;
-    }
+    .size-select { font-size: 11px; font-weight: 400; height: 30px; padding: 0 22px 0 10px; border-radius: 999px; border: 1.5px solid #C0DD97; background: #fff; color: #3B6D11; cursor: pointer; appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath fill='%233B6D11' d='M0 0l5 6 5-6z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 8px center; }
     .size-select:focus { outline: none; border-color: #2e7d5e; }
-
-    /* GRID */
     .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
     @media (max-width: 480px) { .grid { grid-template-columns: 1fr; } }
-
-    .product-card {
-      background: #fff; border: 1.5px solid #C0DD97;
-      border-radius: 10px; overflow: hidden;
-      display: flex; flex-direction: column;
-      transition: border-color 0.15s;
-    }
+    .product-card { background: #fff; border: 1.5px solid #C0DD97; border-radius: 10px; overflow: hidden; display: flex; flex-direction: column; transition: border-color 0.15s; }
     .product-card:hover { border-color: #2e7d5e; }
-
-    .product-img {
-      width: 100%; height: 130px;
-      overflow: hidden; position: relative;
-    }
+    .product-img { width: 100%; height: 130px; overflow: hidden; position: relative; background: #EAF3DE; }
     .product-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
-
-    .recycle-tag {
-      position: absolute; top: 7px; left: 7px;
-      background: #2e7d5e; color: #fff;
-      font-size: 9px; font-weight: 500;
-      padding: 2px 8px; border-radius: 999px;
-      display: flex; align-items: center; gap: 3px;
-    }
-    .recycle-tag-inline {
-      display: inline-flex; align-items: center; gap: 3px;
-      background: #EAF3DE; color: #3B6D11;
-      font-size: 9px; font-weight: 500;
-      padding: 2px 8px; border-radius: 999px;
-      border: 1px solid #C0DD97; margin-bottom: 4px;
-    }
-
+    .recycle-tag { position: absolute; top: 7px; left: 7px; background: #2e7d5e; color: #fff; font-size: 9px; font-weight: 500; padding: 2px 8px; border-radius: 999px; display: flex; align-items: center; gap: 3px; }
+    .recycle-tag-inline { display: inline-flex; align-items: center; gap: 3px; background: #EAF3DE; color: #3B6D11; font-size: 9px; font-weight: 500; padding: 2px 8px; border-radius: 999px; border: 1px solid #C0DD97; margin-bottom: 4px; }
     .product-body { flex: 1; padding: 0.75rem; display: flex; flex-direction: column; gap: 7px; }
     .product-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 6px; }
     .product-name { font-size: 13px; font-weight: 500; color: #000; margin-bottom: 2px; }
     .product-meta { font-size: 11px; color: #666; }
-
     .badge { font-size: 10px; font-weight: 500; padding: 2px 8px; border-radius: 6px; white-space: nowrap; flex-shrink: 0; }
     .badge-available { background: #EAF3DE; color: #27500A; border: 1px solid #C0DD97; }
     .badge-limited { background: #FAEEDA; color: #633806; border: 1px solid #FAC775; }
-
     .sizes-label { font-size: 11px; color: #666; margin-bottom: 5px; }
     .sizes-grid { display: flex; flex-wrap: wrap; gap: 4px; }
-    .size-chip {
-      display: flex; flex-direction: column; align-items: center;
-      min-width: 36px; padding: 4px 6px; border-radius: 6px;
-      border: 1px solid #C0DD97; font-size: 11px; font-weight: 500;
-      color: #27500A; background: #EAF3DE;
-    }
+    .size-chip { display: flex; flex-direction: column; align-items: center; min-width: 36px; padding: 4px 6px; border-radius: 6px; border: 1px solid #C0DD97; font-size: 11px; font-weight: 500; color: #27500A; background: #EAF3DE; }
     .size-chip .size-count { font-size: 9px; font-weight: 400; color: #639922; margin-top: 1px; }
-
-    .card-footer {
-      display: flex; align-items: center;
-      padding-top: 7px; border-top: 1px solid #C0DD97; margin-top: auto;
-    }
+    .card-footer { display: flex; align-items: center; padding-top: 7px; border-top: 1px solid #C0DD97; margin-top: auto; }
     .stock-summary { font-size: 10px; color: #888; display: flex; align-items: center; gap: 3px; }
     .dot { width: 5px; height: 5px; border-radius: 50%; display: inline-block; flex-shrink: 0; }
     .dot-green { background: #2e7d5e; }
     .dot-amber { background: #BA7517; }
-
-    .empty-state {
-      grid-column: span 2; text-align: center;
-      padding: 3rem 1rem; color: #888; font-size: 14px;
-    }
-
-    /* SKELETON LOADER */
-    .skeleton-card {
-      background: #fff; border: 1.5px solid #e8f0e0;
-      border-radius: 10px; overflow: hidden; height: 200px;
-    }
-    .skeleton-shimmer {
-      background: linear-gradient(90deg, #f0f4eb 25%, #e0ead8 50%, #f0f4eb 75%);
-      background-size: 200% 100%;
-      animation: shimmer 1.4s infinite;
-      width: 100%; height: 100%;
-    }
+    .empty-state { grid-column: span 2; text-align: center; padding: 3rem 1rem; color: #888; font-size: 14px; }
+    .skeleton-card { background: #fff; border: 1.5px solid #e8f0e0; border-radius: 10px; overflow: hidden; height: 200px; }
+    .skeleton-shimmer { background: linear-gradient(90deg, #f0f4eb 25%, #e0ead8 50%, #f0f4eb 75%); background-size: 200% 100%; animation: shimmer 1.4s infinite; width: 100%; height: 100%; }
     @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
-
-    /* FOOTER */
-    .footer {
-      background: #2e7d5e; padding: 12px 20px;
-      display: flex; align-items: center; justify-content: space-between; gap: 8px;
-    }
+    .footer { background: #2e7d5e; padding: 12px 20px; display: flex; align-items: center; justify-content: space-between; gap: 8px; }
     .footer-left { font-size: 11px; color: rgba(255,255,255,0.8); display: flex; align-items: center; gap: 5px; }
     .footer-impact { font-size: 11px; color: #fff; font-weight: 500; display: flex; align-items: center; gap: 5px; }
   </style>
 </head>
 <body>
-
 <div class="wrap">
 
-  <!-- TOP BAR -->
   <div class="top-bar">
-    <img
-      src="https://colegiocdmx.edu.mx/wp-content/uploads/2021/09/logo-colegio-ciudad-de-mexico-blanco.png"
-      alt="Colegio Ciudad de México"
-      onerror="this.style.display='none';document.getElementById('logo-fallback').style.display='block';"
-    />
-    <span id="logo-fallback" style="display:none;color:#fff;font-size:15px;font-weight:700;letter-spacing:0.05em;">CCM</span>
+    <img src="https://colegiocdmx.edu.mx/wp-content/uploads/2021/09/logo-colegio-ciudad-de-mexico-blanco.png" alt="CCM" onerror="this.style.display='none';document.getElementById('lf').style.display='block';" />
+    <span id="lf" style="display:none;color:#fff;font-size:15px;font-weight:700;letter-spacing:0.05em;">CCM</span>
     <div class="top-bar-divider"></div>
     <div>
       <div class="top-bar-title">Bolsa de uniformes</div>
@@ -222,17 +84,14 @@
     </div>
   </div>
 
-  <!-- HERO -->
   <div class="hero">
     <div class="hero-top">
       <div style="flex:1;">
         <p class="hero-headline">Uniformes con segunda vida</p>
-        <p class="hero-sub">Cada prenda donada evita residuos textiles y apoya a familias de nuestra comunidad escolar. Dona tus uniformes para que otras familias puedan aprovecharlos. También aceptamos prendas que ya no son aptas para el reúso, las reciclaremos.</p>
-        <span class="hero-highlight">⭐ ¡Puedes llevarte prendas sin que dones!</span>
+        <p class="hero-sub">Cada prenda donada evita residuos textiles y apoya a familias de nuestra comunidad escolar. Dona tus uniformes para que otras familias puedan aprovecharlos. También aceptamos prendas que ya no son aptas para el reuso, las reciclaremos.</p>
+        <span class="hero-highlight">&#11088; ¡Puedes llevarte prendas sin que dones!</span>
       </div>
-      <div class="hero-icon">
-        <i class="ti ti-leaf" style="font-size:22px;color:#fff;"></i>
-      </div>
+      <div class="hero-icon"><i class="ti ti-leaf" style="font-size:22px;color:#fff;"></i></div>
     </div>
     <div class="impact-pills">
       <span class="impact-pill"><i class="ti ti-recycle" style="font-size:13px;"></i> Reutiliza</span>
@@ -242,249 +101,206 @@
     </div>
   </div>
 
-  <!-- STATS -->
   <div class="stats-strip">
     <div class="stat-cell">
       <div class="stat-label">Piezas disponibles</div>
-      <div class="stat-value" id="stat-avail">—</div>
+      <div class="stat-value" id="stat-avail">...</div>
     </div>
     <div class="stat-cell">
       <div class="stat-label">Tallas con stock</div>
-      <div class="stat-value" id="stat-sizes">—</div>
+      <div class="stat-value" id="stat-sizes">...</div>
     </div>
   </div>
 
-  <!-- BODY -->
   <div class="body">
-
     <div class="last-update loading" id="update-label">
       <i class="ti ti-refresh" style="font-size:12px;"></i>
       <span>Cargando inventario en vivo...</span>
     </div>
-
     <input class="ccm-search" type="text" placeholder="Buscar uniforme..." id="search-box" oninput="renderCatalogue()" />
-
     <div class="controls-row">
       <button class="filter-btn active" onclick="applyFilter('all',this)">Todos</button>
       <button class="filter-btn" onclick="applyFilter('available',this)">Varios en stock</button>
-      <button class="filter-btn" onclick="applyFilter('limited',this)">Últimas piezas</button>
+      <button class="filter-btn" onclick="applyFilter('limited',this)">Ultimas piezas</button>
       <button class="filter-btn" onclick="applyFilter('pri',this)">Kin/Prim</button>
       <button class="filter-btn" onclick="applyFilter('sec',this)">Sec/Prepa</button>
       <select class="size-select" id="size-filter" onchange="renderCatalogue()">
         <option value="">Talla: todas</option>
       </select>
     </div>
-
     <div class="grid" id="catalogue">
-      <!-- skeleton -->
       <div class="skeleton-card"><div class="skeleton-shimmer"></div></div>
       <div class="skeleton-card"><div class="skeleton-shimmer"></div></div>
       <div class="skeleton-card"><div class="skeleton-shimmer"></div></div>
       <div class="skeleton-card"><div class="skeleton-shimmer"></div></div>
     </div>
-
   </div>
 
-  <!-- FOOTER -->
   <div class="footer">
-    <span class="footer-left">
-      <i class="ti ti-map-pin" style="font-size:13px;"></i>
-      Plantel Polanco
-    </span>
-    <span class="footer-impact" id="footer-impact">
-      <i class="ti ti-leaf" style="font-size:13px;"></i>
-      <span>—</span>
-    </span>
+    <span class="footer-left"><i class="ti ti-map-pin" style="font-size:13px;"></i> Plantel Polanco</span>
+    <span class="footer-impact" id="footer-impact"><i class="ti ti-leaf" style="font-size:13px;"></i> <span>...</span></span>
   </div>
 
 </div>
-
 <script>
-// ─── CONFIG ────────────────────────────────────────────────────────────────
-const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTECN_ZotXxL3qlrNVMHQ1JVXzfHyLVUVwevpOznWTBCRZsKnhpFvMXJCLS525I0RrnogefxvhpczAV/pub?gid=1306504336&single=true&output=csv';
+var SHEET = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTECN_ZotXxL3qlrNVMHQ1JVXzfHyLVUVwevpOznWTBCRZsKnhpFvMXJCLS525I0RrnogefxvhpczAV/pub?gid=1306504336&single=true&output=csv';
 
-// Item display names + metadata keyed by slug
-const ITEM_META = {
-  'CHALECO-TODOS':             { name: 'Chaleco',                    level: 'todos', description: 'Todos los niveles',            image: null },
-  'CHAMARRA/DEPORTIVA-TODOS':  { name: 'Chamarra deportiva',         level: 'todos', description: 'Todos los niveles',            image: null },
-  'CHAMARRA/INVIERNO-TODOS':   { name: 'Chamarra de invierno',       level: 'todos', description: 'Todos los niveles',            image: null },
-  'HOODIE-SEC/PREP':           { name: 'Hoodie',                     level: 'sec',   description: 'Secundaria y Prepa',           image: null },
-  'JUMPER-PRI':                { name: 'Jumper',                     level: 'pri',   description: 'Kinder y Primaria',            image: null },
-  'PANTALON/DEPORTIVO-TODOS':  { name: 'Pantalón deportivo',         level: 'todos', description: 'Todos los niveles',            image: null },
-  'PANTALON/VESTIR-PRI':       { name: 'Pantalón de vestir',         level: 'pri',   description: 'Kinder y Primaria',            image: null },
-  'PLAYERA-SEC/PREP':          { name: 'Playera',                    level: 'sec',   description: 'Secundaria y Prepa',           image: null },
-  'PLAYERAV-SEC/PREP':         { name: 'Playera V',                  level: 'sec',   description: 'Secundaria y Prepa · escote V',image: null },
-  'PLAYERA/POLO':              { name: 'Playera polo',               level: 'sec',   description: 'Sec/Prepa · Plantel Polanco',  image: 'https://launiformeria.com/wp-content/uploads/2022/08/1-500x500.jpg' },
-  'POLO/LARGA-TODOS':          { name: 'Polo manga larga',           level: 'todos', description: 'Todos los niveles',            image: null },
-  'SHORT-TODOS':               { name: 'Short',                      level: 'todos', description: 'Todos los niveles',            image: null },
-  'SUETER/ABIERTO-PRI':        { name: 'Suéter abierto',             level: 'pri',   description: 'Kinder y Primaria',            image: null },
-  'SUETER/CERRADO-PRI':        { name: 'Suéter cerrado',             level: 'pri',   description: 'Kinder y Primaria',            image: null },
-  'SUETER/DEPORTIVO-SEC/PREP': { name: 'Suéter universitario',       level: 'sec',   description: 'Secundaria',                   image: null },
-  'BATA/LABORATORIO-SEC/PREP': { name: 'Bata de laboratorio',        level: 'sec',   description: 'Secundaria y Prepa',           image: null },
+function img(id) {
+  return 'https://lh3.googleusercontent.com/d/' + id;
+}
+
+var META = {
+  'CHALECO-TODOS':             { name: 'Chaleco',              level: 'todos', desc: 'Todos los niveles',             image: img('10fS9QY6933NAkqopAkr3hHuQbdi5nl-2') },
+  'CHAMARRA/DEPORTIVA-TODOS':  { name: 'Chamarra deportiva',   level: 'todos', desc: 'Todos los niveles',             image: img('12q1BHodius3x1hhsEXpfnGKQ0MuW3CNI') },
+  'CHAMARRA/INVIERNO-TODOS':   { name: 'Chamarra de invierno', level: 'todos', desc: 'Todos los niveles',             image: img('1ht76otKrdVy28_3Z1ASux3Tr1b_wuShy') },
+  'HOODIE-SEC/PREP':           { name: 'Hoodie',               level: 'sec',   desc: 'Secundaria y Prepa',            image: img('1LmVXjXlI-3WXoUVBh90mtYUzds4BnNQq') },
+  'JUMPER-PRI':                { name: 'Jumper',               level: 'pri',   desc: 'Kinder y Primaria',             image: img('1DWvwUdmvhdvzQM8mJqJMuqQ_m5cwJg4X') },
+  'PANTALON/DEPORTIVO-TODOS':  { name: 'Pantalon deportivo',   level: 'todos', desc: 'Todos los niveles',             image: img('1z1Ma-HjsSXwmsW9A78tag6YrkCaiSPGi') },
+  'PANTALON/VESTIR-PRI':       { name: 'Pantalon de vestir',   level: 'pri',   desc: 'Kinder y Primaria',             image: img('1xPABY2ypnI9CMuFM0tIkYYSCOCORAMra') },
+  'PLAYERA-SEC/PREP':          { name: 'Playera',              level: 'sec',   desc: 'Secundaria y Prepa',            image: img('1gaytKINDg9gmmRU7byUobFE1DIiYtDBl') },
+  'PLAYERAV-SEC/PREP':         { name: 'Playera V',            level: 'sec',   desc: 'Secundaria y Prepa, escote V',  image: img('1gaytKINDg9gmmRU7byUobFE1DIiYtDBl') },
+  'PLAYERA/POLO':              { name: 'Playera polo',         level: 'sec',   desc: 'Sec/Prepa, Plantel Polanco',    image: img('1cufhx0uDG7wQsN3QWePmHSNz2MVzDbP-') },
+  'POLO/LARGA-TODOS':          { name: 'Polo manga larga',     level: 'todos', desc: 'Todos los niveles',             image: img('1yZxmwxRn0DA49FOOeRdsc8GmJZJ-97AI') },
+  'SHORT-TODOS':               { name: 'Short',                level: 'todos', desc: 'Todos los niveles',             image: img('1vxMA4ifpLFLkoByoPEsOvRDOjcULIS4O') },
+  'SUETER/ABIERTO-PRI':        { name: 'Sueter abierto',       level: 'pri',   desc: 'Kinder y Primaria',             image: img('15ihCZ_y_9BJ_GU_zuH0b7csZ_-HFNHBz') },
+  'SUETER/CERRADO-PRI':        { name: 'Sueter cerrado',       level: 'pri',   desc: 'Kinder y Primaria',             image: img('1DhN3qsiFPYh84gR9omOQLJvWu5RI0So5') },
+  'SUETER/DEPORTIVO-SEC/PREP': { name: 'Sueter universitario', level: 'sec',   desc: 'Secundaria',                    image: img('1fYrpyR0upmBlmohbSZfkWWHRd2Q5jQ8z') },
+  'BATA/LABORATORIO-SEC/PREP': { name: 'Bata de laboratorio',  level: 'sec',   desc: 'Secundaria y Prepa',            image: null }
 };
 
-const SIZE_ORDER = ['0','1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','22','24','26','28','30','32','34','36','38','40','CH','XCH','S','M','G','L','XG','XL','XXL'];
+var SIZE_ORDER = ['0','1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','22','24','26','28','30','32','34','36','38','40','CH','XCH','S','M','G','L','XG','XL','XXL'];
+var inventory = [];
+var currentFilter = 'all';
 
-let inventory = [];
-let currentFilter = 'all';
-
-// ─── CSV FETCH ──────────────────────────────────────────────────────────────
-async function loadInventory() {
-  try {
-    const res = await fetch(SHEET_CSV_URL + '&t=' + Date.now());
-    const text = await res.text();
-    inventory = parseCSV(text);
-    renderAll();
-    document.getElementById('update-label').innerHTML =
-      '<i class="ti ti-check" style="font-size:12px;color:#3B6D11;"></i>' +
-      '<span style="color:#3B6D11;">Inventario actualizado · ' + new Date().toLocaleTimeString('es-MX', {hour:'2-digit',minute:'2-digit'}) + '</span>';
-    document.getElementById('update-label').classList.remove('loading');
-  } catch(e) {
-    document.getElementById('update-label').innerHTML =
-      '<i class="ti ti-alert-triangle" style="font-size:12px;color:#BA7517;"></i>' +
-      '<span style="color:#BA7517;">No se pudo conectar al inventario. Mostrando datos previos.</span>';
-  }
+function loadInventory() {
+  fetch(SHEET + '&t=' + Date.now())
+    .then(function(r) { return r.text(); })
+    .then(function(text) {
+      inventory = parseCSV(text);
+      renderAll();
+      document.getElementById('update-label').innerHTML =
+        '<i class="ti ti-check" style="font-size:12px;color:#3B6D11;"></i>' +
+        '<span style="color:#3B6D11;">Inventario actualizado</span>';
+      document.getElementById('update-label').classList.remove('loading');
+    })
+    .catch(function() {
+      document.getElementById('update-label').innerHTML =
+        '<span style="color:#BA7517;">No se pudo conectar al inventario.</span>';
+    });
 }
 
 function parseCSV(text) {
-  const lines = text.trim().split('\n').map(l => l.split(','));
-  // headers: SKU, Tipo, Talla, Donated, Taken, Transferred, Stock
-  const result = {};
-  for (let i = 1; i < lines.length; i++) {
-    const row = lines[i];
+  var lines = text.trim().split('\n');
+  var result = {};
+  for (var i = 1; i < lines.length; i++) {
+    var row = lines[i].split(',');
     if (row.length < 3) continue;
-    const tipo = (row[1] || '').trim();
-    const talla = (row[2] || '').trim();
-    const stock = parseInt(row[6] || '0', 10) || 0;
-    if (!tipo || !talla) continue;
+    var tipo = (row[1] || '').trim();
+    var talla = (row[2] || '').trim();
+    var stock = parseInt(row[6] || '0', 10) || 0;
+    if (!tipo || !talla || stock <= 0) continue;
     if (!result[tipo]) result[tipo] = [];
-    if (stock > 0) result[tipo].push({ label: talla, stock });
+    result[tipo].push({ label: talla, stock: stock });
   }
-
-  // Build final array
-  return Object.entries(result)
-    .filter(([slug]) => ITEM_META[slug])
-    .map(([slug, sizes]) => ({
-      slug,
-      ...ITEM_META[slug],
-      sizes: sizes.sort((a,b) => {
-        const ai = SIZE_ORDER.indexOf(a.label);
-        const bi = SIZE_ORDER.indexOf(b.label);
-        if (ai !== -1 && bi !== -1) return ai - bi;
-        if (ai !== -1) return -1;
-        if (bi !== -1) return 1;
-        return a.label.localeCompare(b.label);
-      })
-    }))
-    .filter(p => p.sizes.length > 0); // only items with stock
+  var out = [];
+  Object.keys(result).forEach(function(slug) {
+    if (!META[slug]) return;
+    var sizes = result[slug].sort(function(a, b) {
+      var ai = SIZE_ORDER.indexOf(a.label), bi = SIZE_ORDER.indexOf(b.label);
+      if (ai !== -1 && bi !== -1) return ai - bi;
+      if (ai !== -1) return -1;
+      if (bi !== -1) return 1;
+      return a.label.localeCompare(b.label);
+    });
+    out.push({ slug: slug, name: META[slug].name, level: META[slug].level, desc: META[slug].desc, image: META[slug].image, sizes: sizes });
+  });
+  return out;
 }
 
-// ─── HELPERS ────────────────────────────────────────────────────────────────
 function getStatus(sizes) {
-  const total = sizes.reduce((a,s) => a + s.stock, 0);
+  var total = sizes.reduce(function(a, s) { return a + s.stock; }, 0);
   if (total === 0) return 'out';
   return total <= 2 ? 'limited' : 'available';
 }
 
-function badgeHTML(status) {
-  return status === 'available'
-    ? '<span class="badge badge-available">Disponible</span>'
-    : '<span class="badge badge-limited">Últimas piezas</span>';
-}
-
-// ─── DROPDOWN ───────────────────────────────────────────────────────────────
 function populateSizeDropdown() {
-  const all = new Set();
-  inventory.forEach(p => p.sizes.forEach(s => all.add(s.label)));
-  const sorted = [...all].sort((a,b) => {
-    const ai = SIZE_ORDER.indexOf(a), bi = SIZE_ORDER.indexOf(b);
+  var all = {};
+  inventory.forEach(function(p) { p.sizes.forEach(function(s) { all[s.label] = true; }); });
+  var sorted = Object.keys(all).sort(function(a, b) {
+    var ai = SIZE_ORDER.indexOf(a), bi = SIZE_ORDER.indexOf(b);
     if (ai !== -1 && bi !== -1) return ai - bi;
     if (ai !== -1) return -1; if (bi !== -1) return 1;
     return a.localeCompare(b);
   });
-  const sel = document.getElementById('size-filter');
+  var sel = document.getElementById('size-filter');
   sel.innerHTML = '<option value="">Talla: todas</option>';
-  sorted.forEach(s => {
-    const o = document.createElement('option');
+  sorted.forEach(function(s) {
+    var o = document.createElement('option');
     o.value = s; o.textContent = 'Talla: ' + s;
     sel.appendChild(o);
   });
 }
 
-// ─── RENDER ─────────────────────────────────────────────────────────────────
 function renderAll() {
   populateSizeDropdown();
   renderCatalogue();
 }
 
 function renderCatalogue() {
-  const container = document.getElementById('catalogue');
-  const query = document.getElementById('search-box').value.toLowerCase().trim();
-  const sizeFilter = document.getElementById('size-filter').value;
+  var container = document.getElementById('catalogue');
+  var query = document.getElementById('search-box').value.toLowerCase().trim();
+  var sizeFilter = document.getElementById('size-filter').value;
 
-  const visible = inventory.filter(p => {
-    const status = getStatus(p.sizes);
+  var visible = inventory.filter(function(p) {
+    var status = getStatus(p.sizes);
     if (status === 'out') return false;
     if (currentFilter === 'available' && status !== 'available') return false;
     if (currentFilter === 'limited' && status !== 'limited') return false;
     if (currentFilter === 'pri' && p.level !== 'pri') return false;
     if (currentFilter === 'sec' && p.level !== 'sec') return false;
-    if (sizeFilter && !p.sizes.some(s => s.label === sizeFilter && s.stock > 0)) return false;
-    if (query && !p.name.toLowerCase().includes(query) && !p.slug.toLowerCase().includes(query)) return false;
+    if (sizeFilter && !p.sizes.some(function(s) { return s.label === sizeFilter && s.stock > 0; })) return false;
+    if (query && p.name.toLowerCase().indexOf(query) === -1 && p.slug.toLowerCase().indexOf(query) === -1) return false;
     return true;
   });
 
-  // Stats
-  const allWithStock = inventory.filter(p => p.sizes.length > 0);
-  const totalPieces = allWithStock.reduce((a,p) => a + p.sizes.reduce((b,s) => b + s.stock, 0), 0);
-  const totalSizes = allWithStock.reduce((a,p) => a + p.sizes.length, 0);
-  document.getElementById('stat-avail').textContent = totalPieces;
-  document.getElementById('stat-sizes').textContent = totalSizes;
-  document.getElementById('footer-impact').innerHTML =
-    '<i class="ti ti-leaf" style="font-size:13px;"></i><span>' + totalPieces + ' prendas rescatadas del desecho</span>';
+  var allStock = inventory.reduce(function(a, p) { return a + p.sizes.reduce(function(b, s) { return b + s.stock; }, 0); }, 0);
+  var allSizes = inventory.reduce(function(a, p) { return a + p.sizes.length; }, 0);
+  document.getElementById('stat-avail').textContent = allStock;
+  document.getElementById('stat-sizes').textContent = allSizes;
+  document.getElementById('footer-impact').innerHTML = '<i class="ti ti-leaf" style="font-size:13px;"></i><span>' + allStock + ' prendas rescatadas del desecho</span>';
 
   container.innerHTML = '';
 
   if (!visible.length) {
-    container.innerHTML = '<div class="empty-state"><i class="ti ti-mood-empty" style="font-size:32px;display:block;margin-bottom:8px;"></i>No hay artículos con ese filtro.</div>';
+    container.innerHTML = '<div class="empty-state"><i class="ti ti-mood-empty" style="font-size:32px;display:block;margin-bottom:8px;"></i>No hay articulos con ese filtro.</div>';
     return;
   }
 
-  visible.forEach(product => {
-    const status = getStatus(product.sizes);
-    const totalPcs = product.sizes.reduce((a,s) => a + s.stock, 0);
-    const dotClass = status === 'available' ? 'dot-green' : 'dot-amber';
+  visible.forEach(function(product) {
+    var status = getStatus(product.sizes);
+    var totalPcs = product.sizes.reduce(function(a, s) { return a + s.stock; }, 0);
+    var dotClass = status === 'available' ? 'dot-green' : 'dot-amber';
+    var badge = status === 'available'
+      ? '<span class="badge badge-available">Disponible</span>'
+      : '<span class="badge badge-limited">Ultimas piezas</span>';
 
-    const chips = product.sizes.map(s =>
-      '<div class="size-chip" title="' + s.stock + ' pz">' + s.label +
-      '<span class="size-count">' + s.stock + ' pz</span></div>'
-    ).join('');
+    var chips = product.sizes.map(function(s) {
+      return '<div class="size-chip">' + s.label + '<span class="size-count">' + s.stock + ' pz</span></div>';
+    }).join('');
 
-    const imgSection = product.image
-      ? '<div class="product-img"><img src="' + product.image + '" alt="' + product.name + '" loading="lazy" /><span class="recycle-tag"><i class="ti ti-recycle" style="font-size:10px;"></i> Donado</span></div>'
+    var imgHtml = product.image
+      ? '<div class="product-img"><img src="' + product.image + '" alt="' + product.name + '" loading="lazy" onerror="this.parentElement.style.display=\'none\'"/><span class="recycle-tag"><i class="ti ti-recycle" style="font-size:10px;"></i> Donado</span></div>'
       : '';
 
-    const recycleInline = !product.image
-      ? '<span class="recycle-tag-inline"><i class="ti ti-recycle" style="font-size:9px;"></i> Donado</span>'
-      : '';
+    var recycleInline = product.image ? '' : '<span class="recycle-tag-inline"><i class="ti ti-recycle" style="font-size:9px;"></i> Donado</span>';
 
-    const card = document.createElement('div');
+    var card = document.createElement('div');
     card.className = 'product-card';
-    card.innerHTML =
-      imgSection +
-      '<div class="product-body">' +
-        recycleInline +
-        '<div class="product-header">' +
-          '<div style="min-width:0;"><p class="product-name">' + product.name + '</p>' +
-          '<p class="product-meta">' + product.description + '</p></div>' +
-          badgeHTML(status) +
-        '</div>' +
-        '<div><p class="sizes-label">Tallas disponibles</p>' +
-        '<div class="sizes-grid">' + chips + '</div></div>' +
-        '<div class="card-footer"><span class="stock-summary">' +
-          '<span class="dot ' + dotClass + '"></span>' +
-          totalPcs + ' pz · ' + product.sizes.length + ' talla' + (product.sizes.length !== 1 ? 's' : '') +
-        '</span></div>' +
+    card.innerHTML = imgHtml +
+      '<div class="product-body">' + recycleInline +
+      '<div class="product-header"><div style="min-width:0;"><p class="product-name">' + product.name + '</p><p class="product-meta">' + product.desc + '</p></div>' + badge + '</div>' +
+      '<div><p class="sizes-label">Tallas disponibles</p><div class="sizes-grid">' + chips + '</div></div>' +
+      '<div class="card-footer"><span class="stock-summary"><span class="dot ' + dotClass + '"></span>' + totalPcs + ' pz, ' + product.sizes.length + ' talla' + (product.sizes.length !== 1 ? 's' : '') + '</span></div>' +
       '</div>';
     container.appendChild(card);
   });
@@ -492,14 +308,12 @@ function renderCatalogue() {
 
 function applyFilter(filter, btn) {
   currentFilter = filter;
-  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.filter-btn').forEach(function(b) { b.classList.remove('active'); });
   btn.classList.add('active');
   renderCatalogue();
 }
 
-// ─── INIT ───────────────────────────────────────────────────────────────────
 loadInventory();
-// Auto-refresh every 5 minutes
 setInterval(loadInventory, 5 * 60 * 1000);
 </script>
 </body>
